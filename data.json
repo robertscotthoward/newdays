@@ -1,0 +1,26 @@
+{
+  "pages": [
+    {
+      "id": "home",
+      "text": "HOME",
+      "menu": {
+        "text": "~H O M E~"
+      }
+    },
+    {
+      "id": "art"
+    },
+    {
+      "id": "ela"
+    },
+    {
+      "id": "fosi"
+    },
+    {
+      "id": "cs"
+    },
+    {
+      "id": "math"
+    }
+  ]
+}
