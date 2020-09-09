@@ -2,13 +2,16 @@
   "pages": [
     {
       "id": "home",
+      "background": "images/background_home.jpg",
       "text": "HOME",
+      "url": "pages/home.html",
       "menu": {
         "text": "~H O M E~"
       }
     },
     {
-      "id": "art"
+      "id": "art",
+      "tomato": "yeet so there"
     },
     {
       "id": "ela"
@@ -21,6 +24,9 @@
     },
     {
       "id": "math"
+    },
+    {
+      "id": "robby"
     }
   ]
 }

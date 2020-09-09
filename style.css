@@ -21,10 +21,10 @@ specialsidenote {
 }
 
 body {
-  background-image: url("https://i.pinimg.com/564x/0b/85/2c/0b852c91ada7b9ec07c82b1c4fa6db37.jpg");
   font-family: 'Bungee';
   font-size: 22px;
 }
+
 .card {
   border-radius: 25px;
   background-color: #333;
@@ -73,6 +73,7 @@ specialsidenote {
   overflow: hidden;
   background-color: #333;
 }
+
 b {
   text-align: center;
   padding: 14px 16px;
