@@ -2,9 +2,10 @@
   "pages": [
     {
       "id": "home",
-      "background": "images/background_home.jpg",
+      "route": "/",
+      "background": "/images/background_home.jpg",
       "text": "HOME",
-      "url": "pages/home.html",
+      "url": "/pages/home.html",
       "menu": {
         "text": "~H O M E~"
       }
@@ -24,9 +25,6 @@
     },
     {
       "id": "math"
-    },
-    {
-      "id": "robby"
     }
   ]
 }

@@ -3,5 +3,26 @@
 A demo of a very simple Single Page Application that only uses jQuery - no Angular; no React. Minimal functions.
 
 Subpages are stored in the "pages" folder.
-
+# Data
 `data.json` drives most of the site and menus. The "pages" key is a list of page objects. These generate the menus and refer to pages that are loaded. The entire object can be rendered as substitute handlebars in the subpages.
+
+The structure of this data file is:
+
+* pages: a list of 'page' objects to load in at runtime making the site a Single Page Application. The order determines the menu order. The first is assumed to be the home page.
+* page.id: the unique identifier of the page; no spaces
+* page.route: 
+* page.background: 
+* page.text: 
+* page.url: the relative URL of the page to load. DEFAULT = "pages/{page.id}.html
+* page.menu: an optional menu object that determines if the page generates a corresponding menu link.
+* page.menu/text: the text to appear in the menu item. DEFAULT = uppercase(id)
+
+# Favicon Icon
+Generated here: https://www.favicon.cc then uploaded as `favicon.ico` to root web directory.
+
+# Run as local web server
+* Install npm
+* Run once `npm install -g http-server`
+* Go to application folder
+* Run `cmd`
+* Run `http-server`
