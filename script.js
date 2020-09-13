@@ -68,7 +68,15 @@ function initSite(d) {
     loadPage(pageId, true);
   });
 
-  loadPage(data.pages[0].id), true;
+  $(window).on('hashchange',function(){ 
+    var pageId = window.location.hash;
+    loadPage(pageId), true;
+  });
+
+  var pageId = window.location.hash;
+  if (pageId) pageId = pageId.substr(1);
+  if (!pageId) pageId = data.pages[0].id;
+  loadPage(pageId), true;
 }
 
 $(function () {
