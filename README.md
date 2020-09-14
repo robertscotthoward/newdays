@@ -21,8 +21,17 @@ The structure of this data file is:
 Generated here: https://www.favicon.cc then uploaded as `favicon.ico` to root web directory.
 
 # Run as local web server
-* Install npm
-* Run once `npm install -g http-server`
+## Live Server
+Automatically refreshes the web page when changes are made.
+* PRECONDITIONS: Install npm
+* PRECONDITIONS: Run once `npm install -g live-server`
+* Go to application folder
+* Run `cmd`
+* Run `live-server`
+
+## Common Server
+* PRECONDITIONS: Install npm
+* PRECONDITIONS: Run once `npm install -g http-server`
 * Go to application folder
 * Run `cmd`
 * Run `http-server`
