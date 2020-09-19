@@ -19,7 +19,6 @@ function loadPage(pageId, pushHist) {
       page.text,
       window.location.origin + "#" + page.id
     );
-    console.log("PUSH " + window.location.origin + "#" + page.id);
   }
 
   $.get(page.url, function (html) {
@@ -57,7 +56,7 @@ function initSite(d) {
   var items = [];
   $.each(data.pages, function (i, x) {
     var text = x.text ?? x.id.toUpperCase();
-    items.push("<a menu='" + x.id + "'>" + text + "</li>");
+    items.push("<a menu='" + x.id + "'>" + text + "</a>");
   });
 
   $("div.topnav").html(items.join(" "));
