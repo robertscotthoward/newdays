@@ -12,13 +12,14 @@
     },
     {
       "id": "art",
-      "tomato": ""
+      "content": ""
     },
     {
       "id": "ela"
     },
     {
-      "id": "fosi"
+      "id": "fosi",
+      "name": "Dagny Howard"
     },
     {
       "id": "cs"

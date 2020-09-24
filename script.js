@@ -45,6 +45,7 @@ function loadPage(pageId, pushHist) {
   $("[page-header]").html(page.text);
 }
 
+// This event gets called when the BACK history button is pushed.
 window.onpopstate = (e) => {
   var page = e.state;
   console.log("POP " + page.id);
@@ -53,6 +54,8 @@ window.onpopstate = (e) => {
 
 function initSite(d) {
   data = d;
+
+  // Generate the menu item <a> tags and stuff them in the topnav.
   var items = [];
   $.each(data.pages, function (i, x) {
     var text = x.text ?? x.id.toUpperCase();
@@ -67,6 +70,7 @@ function initSite(d) {
     loadPage(pageId, true);
   });
 
+  // This event gets called when the URL hashtag changes.
   $(window).on('hashchange',function(){ 
     var pageId = window.location.hash;
     loadPage(pageId), true;
@@ -78,6 +82,7 @@ function initSite(d) {
   loadPage(pageId), true;
 }
 
+// Green flag in scratch. main in C. Runs this first.
 $(function () {
   $.getJSON("data.json")
     .success(function (data) { initSite(data); })
