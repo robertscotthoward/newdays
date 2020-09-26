@@ -22,7 +22,7 @@ module.exports = function(grunt) {
               "index.html",
               "README.md",
               "script.js",
-              "style.js",
+              "style.css",
               "pages/**",
               "images/**",
             ]
