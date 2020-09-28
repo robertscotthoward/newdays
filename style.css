@@ -35,7 +35,7 @@ body {
   margin-right: 90px;
   margin-left: 90px;
   font-family: 'Bungee Hairline';font-size: 22px; 
-  font-weight: bolder
+
 }
 
 .card specialsidenote {
@@ -49,8 +49,24 @@ specialsidenote {
   color: white;
   text-align: center;
 }
+/**! **/ 
 .card p {
   color: #D6938A;
+  font-family: 'EB Garamond', serif;
+
+}
+.card narra {
+  color: #D6938A;
+  font-family: 'EB Garamond', serif;
+  text-indent: 50px;
+
+}
+.card h1 {
+  color: #D6938A;
+}
+.mathsummary p {
+
+font-size: 20px;
 }
 .cardpink {
   border-radius: 25px;

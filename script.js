@@ -84,7 +84,7 @@ function initSite(d) {
 
 // Green flag in scratch. main in C. Runs this first.
 $(function () {
-  $.getJSON("data.json")
+  $.getJSON("data.json?z=1")
     .success(function (data) { initSite(data); })
     .error(function (e) { console.log("ERROR: Syntax in JSON?"); console.log(e); })
     .complete(function () { });
