@@ -95,13 +95,13 @@ function reloadStylesheets() {
 
 // Green flag in scratch. 'main' in C. Runs this first.
 $(function () {
-  $.getJSON("data.json?z=" + Math.random()) // Random prevents CDN caching.
+  $.getJSON("/data.json?z=" + Math.random()) // Random prevents CDN caching.
     .success(function (data) { 
       // Read in the build.txt file, that is created from the grunt command that does this:
       // git log | head > build.txt
       // so that we have the git commit id of the last change.
       // This id is used to show the most recent change and the
-      $.get('build.txt')
+      $.get('/build.txt')
         .then(text => {
           var firstLine = text.split('\n')[0];
           var commit = firstLine.substring(7);

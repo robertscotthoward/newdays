@@ -25,6 +25,7 @@ module.exports = function(grunt) {
               "style.css",
               "pages/**",
               "images/**",
+              "build.txt"
             ]
           }
         ]
