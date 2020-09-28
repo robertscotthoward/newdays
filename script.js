@@ -106,6 +106,7 @@ $(function () {
           var firstLine = text.split('\n')[0];
           var commit = firstLine.substring(7);
           data['commit'] = commit;
+          $("div.footer").html("Commit: " + data.commit).prop("title", text);
           console.log(data);
           initSite(data);
           reloadStylesheets();
