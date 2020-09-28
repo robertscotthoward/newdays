@@ -101,16 +101,15 @@ $(function () {
       // git log | head > build.txt
       // so that we have the git commit id of the last change.
       // This id is used to show the most recent change and the
-      fetch('build.txt')
-      .then(response => response.text())
-      .then(text => {
-        var firstLine = text.split('\n')[0];
-        var commit = firstLine.substring(7);
-        data['commit'] = commit;
-        console.log(data);
-        initSite(data);
-        reloadStylesheets();
-      });
+      $.get('build.txt')
+        .then(text => {
+          var firstLine = text.split('\n')[0];
+          var commit = firstLine.substring(7);
+          data['commit'] = commit;
+          console.log(data);
+          initSite(data);
+          reloadStylesheets();
+        });
     })
     .error(function (e) { console.log("ERROR: Syntax in JSON?"); console.log(e); })
     .complete(function () { });
