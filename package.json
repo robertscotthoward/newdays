@@ -4,5 +4,8 @@
   },
   "devDependencies": {
     "grunt": "^0.4.5"
+  },
+  "dependencies": {
+    "grunt-ftp-push": "^1.2.1"
   }
 }
