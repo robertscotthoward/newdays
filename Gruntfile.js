@@ -22,21 +22,26 @@ module.exports = function(grunt) {
               "index.html",
               "README.md",
               "script.js",
-              "style.js",
+              "style.css",
               "pages/**",
               "images/**",
+              "build.txt"
             ]
           }
         ]
       }
-    }    
-  });
+    },
+  shell: {  
+    command: ["git log | head > build.txt"].join('&&')  
+  }
+});
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-ftp-push');
+  grunt.loadNpmTasks('grunt-shell');
 
   // Default task.
   var target = grunt.option('target') || 'infinity';
-  grunt.registerTask('default', ['ftp_push:' + target]);
+  grunt.registerTask('default', ['shell', 'ftp_push:' + target]);
 
 };

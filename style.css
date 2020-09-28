@@ -20,6 +20,10 @@ specialsidenote {
     
 }
 
+div.footer {
+  color: white;
+}
+
 body {
   font-family: 'Bungee';
   font-size: 22px;

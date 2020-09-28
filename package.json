@@ -6,6 +6,7 @@
     "grunt": "^0.4.5"
   },
   "dependencies": {
-    "grunt-ftp-push": "^1.2.1"
+    "grunt-ftp-push": "^1.2.1",
+    "grunt-shell": "^3.0.1"
   }
 }

@@ -1,8 +1,8 @@
 
 function setPageDefaults(page) {
   if (!page.text) page.text = page.id.toUpperCase();
-  if (!page.url) page.url = "/pages/" + page.id + ".html";
-  if (!page.background) page.background = "/images/background_" + page.id + ".jpg";
+  if (!page.url) page.url = "/pages/" + page.id + ".html?z=" + data.commit;
+  if (!page.background) page.background = "/images/background_" + page.id + ".jpg?z=" + data.commit;
   return page;
 }
 
@@ -82,10 +82,36 @@ function initSite(d) {
   loadPage(pageId), true;
 }
 
-// Green flag in scratch. main in C. Runs this first.
+/**
+ * Forces a reload of all stylesheets by appending a unique query string
+ * to each stylesheet URL.
+ */
+function reloadStylesheets() {
+  var queryString = '?reload=' + new Date().getTime();
+  $('link[rel="stylesheet"][nocache]').each(function () {
+      this.href = this.href.replace(/\?.*|$/, queryString);
+  });
+}
+
+// Green flag in scratch. 'main' in C. Runs this first.
 $(function () {
-  $.getJSON("data.json?z=1")
-    .success(function (data) { initSite(data); })
+  $.getJSON("/data.json?z=" + Math.random()) // Random prevents CDN caching.
+    .success(function (data) { 
+      // Read in the build.txt file, that is created from the grunt command that does this:
+      // git log | head > build.txt
+      // so that we have the git commit id of the last change.
+      // This id is used to show the most recent change and the
+      $.get('/build.txt')
+        .then(text => {
+          var firstLine = text.split('\n')[0];
+          var commit = firstLine.substring(7);
+          data['commit'] = commit;
+          $("div.footer").html("Commit: " + data.commit).prop("title", text);
+          console.log(data);
+          initSite(data);
+          reloadStylesheets();
+        });
+    })
     .error(function (e) { console.log("ERROR: Syntax in JSON?"); console.log(e); })
     .complete(function () { });
 });
