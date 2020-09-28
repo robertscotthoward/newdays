@@ -101,12 +101,16 @@ $(function () {
       // git log | head > build.txt
       // so that we have the git commit id of the last change.
       // This id is used to show the most recent change and the
-      $.get('/build.txt')
+      $.get("/build.txt?z=" + Math.random())
         .then(text => {
           var firstLine = text.split('\n')[0];
-          var commit = firstLine.substring(7);
+          var commit = firstLine.substring(7,17);
+          var secondLine = text.split('\n')[3];
+          var lastdate = secondLine.substring(7);
           data['commit'] = commit;
-          $("div.footer").html("Commit: " + data.commit).prop("title", text);
+          data['lastdate'] = lastdate;
+          $("div.footer").html("Version: " + data.commit +
+            "<br>Build Date: " + data.lastdate).prop("title", text);
           console.log(data);
           initSite(data);
           reloadStylesheets();
