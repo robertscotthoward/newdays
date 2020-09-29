@@ -103,12 +103,12 @@ $(function () {
       // This id is used to show the most recent change and the
       $.get("/build.txt?z=" + Math.random())
         .then(text => {
-          var firstLine = text.split('\n')[0];
-          var commit = firstLine.substring(7,17);
-          var secondLine = text.split('\n')[3];
-          var lastdate = secondLine.substring(7);
-          data['commit'] = commit;
-          data['lastdate'] = lastdate;
+          for (var line in text.split('\n')) {
+            if (line.startsWith("commit "))
+              data['commit'] = line.substring(7,17);
+            else if (line.startsWith('Date: '))
+              data['lastdate'] = line.substring(7);
+          }
           $("div.footer").html("Version: " + data.commit +
             "<br>Build Date: " + data.lastdate).prop("title", text);
           console.log(data);
