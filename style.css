@@ -3,11 +3,21 @@ specialsidenote {
   color: white;
   text-align: center;
 }
+specialsidenotetwo {
+  text-align: center;
+  
+}
+.card cardsmaller {
+  background: rgb(200, 212, 86);
+  border-radius: 5px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
 
 .header {
   border-radius: 25px;
   text-align: center;
-  background: #D6938A;;
+  background: #D6938A;
   margin-right: 200px;
   margin-left: 200px;
   border: 400px; 
