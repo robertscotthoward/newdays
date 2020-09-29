@@ -1,8 +1,8 @@
 
 function setPageDefaults(page) {
   if (!page.text) page.text = page.id.toUpperCase();
-  if (!page.url) page.url = "/pages/" + page.id + ".html?z=" + data.commit;
-  if (!page.background) page.background = "/images/background_" + page.id + ".jpg?z=" + data.commit;
+  if (!page.url) page.url = "/pages/" + page.id + ".html?z=" + data.session;
+  if (!page.background) page.background = "/images/background_" + page.id + ".jpg?z=" + data.session;
   return page;
 }
 
@@ -103,7 +103,11 @@ $(function () {
       // This id is used to show the most recent change and the
       $.get("/build.txt?z=" + Math.random())
         .then(text => {
-          for (var line in text.split('\n')) {
+          var lines = text.split('\n');
+          for (var i in lines) {
+            var line = lines[i];
+            console.log(line);
+            data['session'] = Math.floor(1000000000*Math.random());
             if (line.startsWith("commit "))
               data['commit'] = line.substring(7,17);
             else if (line.startsWith('Date: '))
