@@ -88,20 +88,25 @@ function initSite(d) {
  */
 function reloadStylesheets() {
   var queryString = '?reload=' + new Date().getTime();
-  $('link[rel="stylesheet"][nocache]').each(function () {
+  $('link[nocache]').each(function () {
       this.href = this.href.replace(/\?.*|$/, queryString);
   });
 }
 
+var session = Math.floor(1000000000*Math.random());
+
 // Green flag in scratch. 'main' in C. Runs this first.
 $(function () {
-  $.getJSON("/data.json?z=" + Math.random()) // Random prevents CDN caching.
+  $.getJSON("/data.json?z=" + session) // Random prevents CDN caching.
     .success(function (data) { 
       // Read in the build.txt file, that is created from the grunt command that does this:
       // git log | head > build.txt
       // so that we have the git commit id of the last change.
       // This id is used to show the most recent change and the
-      $.get("/build.txt?z=" + Math.random())
+
+      data['session'] = session;
+
+      $.get("/build.txt?z=" + data.session)
         .then(text => {
           var lines = text.split('\n');
           for (var i in lines) {
@@ -110,8 +115,10 @@ $(function () {
             data['session'] = Math.floor(1000000000*Math.random());
             if (line.startsWith("commit "))
               data['commit'] = line.substring(7,17);
-            else if (line.startsWith('Date: '))
+            else if (line.startsWith('Date: ')) {
               data['lastdate'] = line.substring(7);
+              break;
+            }
           }
           $("div.footer").html("Version: " + data.commit +
             "<br>Build Date: " + data.lastdate).prop("title", text);
